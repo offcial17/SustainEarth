@@ -17,6 +17,7 @@ def evaluate_idea(problem_statement, solution):
     assistant = client.beta.assistants.create(
         instructions="""
         You are an evaluator of business ideas related to the circular economy.
+        For CSV files evaluation, raise an error that says documents not found only when there is a runtime error and not when text for the problem and solution are available.
         Be very consistent with the format of the responses generated.
         Be very critical and strict for each metric (penalize as much as possible).
         Highlight the areas of concern.
@@ -91,14 +92,15 @@ def main():
     st.subheader("Upload a CSV File in this format - ID, Problem, Solution")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
 
-    # Add "OR" text
-    st.write("OR")
-
     # Check if a file is uploaded
     if uploaded_file is not None:
         try:
             # Load the CSV file into a DataFrame with the first column as the index
             df = pd.read_csv(uploaded_file, encoding='latin1', index_col=0)
+
+            # Check for errors in file format
+            if len(df.columns) != 2 or not df.index.is_numeric() or not all(df.dtypes == 'object'):
+                raise pd.errors.ParserError
 
             # Display the uploaded data
             st.write("Uploaded Data:")
@@ -123,8 +125,6 @@ def main():
                         # Display the result
                         st.write("Evaluation Result:")
                         st.write(result)
-                    else:
-                        st.error("Invalid row number. Please enter a valid row number.")
                 except ValueError:
                     st.error("Invalid input. Please enter a valid integer for the row number.")
 
