@@ -22,7 +22,7 @@ def evaluate_idea(problem_statement, solution):
         Be very critical and strict for each metric (penalize as much as possible).
         Highlight the areas of concern.
         Keep the headers and scores in bold.
-        Explain each metric in a separate paragraph and have at least 100 words each.
+        Explain each metric in a separate paragraph and have at least 100 words per metric.
         Calculate the result at the end and display it. Print the total score out of 100 in bold and large font at the end.
         Highlight each metric and generate a comprehensive table at the end that compiles the findings as well as a summary paragraph.
         The columns in this table are Metric, Score and Notes/Comments (for concerns/issues).
@@ -83,14 +83,40 @@ def evaluate_idea(problem_statement, solution):
     return assistant_response.replace("$", "\$")
 
 def main():
-    # Title
-    st.title("ECOLOOP MAVEN")
-    # Subtitle
-    st.markdown("*Your Business Idea Evaluator*")
+    # Title with green strip background
+    title_html = """
+        <style>
+            .title-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #4CAF50; /* Green background color */
+                padding: 10px;
+                margin-bottom: 20px; /* Added margin for separation */
+            }
+            .title-text {
+                color: white;
+            }
+        </style>
+        <div class="title-container">
+            <div class="title-text">
+                <h1>ECOLOOP MAVEN</h1>
+                <p>Your Business Idea Evaluator</p>
+            </div>
+        </div>
+    """
+    st.markdown(title_html, unsafe_allow_html=True)
 
     # Allow user to upload a CSV file
-    st.subheader("Upload a CSV File in this format - ID, Problem, Solution")
+    st.subheader("Upload a CSV File with the Following Format:")
+    st.markdown("Ensure your CSV file has three columns: **ID**, **Problem**, and **Solution**.")
+    st.markdown("Example:")
+    st.code("ID, Problem, Solution\n1, Your problem statement 1, Your solution 1\n2, Your problem statement 2, Your solution 2\n...")
+
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
+
+    # Use st.empty() to create an empty placeholder for the "OR" text
+    or_text_placeholder = st.empty()
 
     # Check if a file is uploaded
     if uploaded_file is not None:
@@ -110,7 +136,7 @@ def main():
             row_input = st.text_input("Enter Problem ID:")
             if st.button('Evaluate Idea') and row_input:
                 try:
-                    # Convert the user input to integer
+                    # Convert the user input to an integer
                     row_number = int(row_input)
 
                     # Check if the row number is within the valid range
@@ -130,9 +156,15 @@ def main():
 
         except pd.errors.ParserError:
             st.error("Invalid CSV file format. Please ensure the file follows the expected format.")
-     
+
+        # Clear the "OR" text placeholder
+        or_text_placeholder.empty()
+
     # Allow user to manually input problem statement and solution
     else:
+        # Display the "OR" text
+        or_text_placeholder.text("OR")
+
         # Allow user to input the problem statement and solution manually
         st.subheader("Enter the problem and solution manually:")
         problem_statement = st.text_input("Problem Statement")
