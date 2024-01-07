@@ -43,6 +43,11 @@ Follow these steps to set up and run the project:
     streamlit run main.py
     ```
 
+
+### Replace the API key in the .env file
+
+Go to file named `.env` and add your `OPENAI_API_KEY` to it.
+
 ## Usage
 
 To use the application, follow these steps:
