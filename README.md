@@ -29,7 +29,7 @@ Follow these steps to set up and run the project:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/YourUsername/SustainEarth
+    git clone https://github.com/offcial17/SustainEarth
     cd SustainEarth
     ```
 
