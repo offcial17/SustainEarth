@@ -1,3 +1,7 @@
+"""
+This script contains the function to evaluate business ideas using the GPT-4 model.
+"""
+
 import os
 import pandas as pd
 import streamlit as st
@@ -9,7 +13,15 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 def evaluate_idea(problem_statement, solution):
     """
-    Function to evaluate an idea using OpenAI Assistant.
+    This function takes a problem statement and a solution as input,
+    and uses the GPT-4 model to evaluate the idea.
+    
+    Parameters:
+    problem_statement (str): The problem that the business idea aims to solve.
+    solution (str): The proposed solution or business idea.
+    
+    Returns:
+    str: The evaluation result.
     """
     client = OpenAI()
 
@@ -34,7 +46,7 @@ def evaluate_idea(problem_statement, solution):
 
         2) Conceptual Clarity and Differentiation: How clearly is the idea articulated? What sets it apart from existing concepts or competitors? Rate clear communication out of 5 and differentiation out of 5.
 
-        3) Environmental Impact Potential: Assess the potential of the idea to minimize environmental impact and maximize resource efficiency. Use the United States SDGs to add context to the explanation. Highlight how it affects the circular economy. 
+        3) Environmental Impact Potential: Assess the potential of the idea to minimize environmental impact and maximize resource efficiency. Use the United Nations SDGs to add context to the explanation. Highlight how it affects the circular economy. 
         Rate out of 10.
 
         4) Stakeholder Value Proposition: (Print each of the following in separate lines)

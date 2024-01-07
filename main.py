@@ -1,31 +1,33 @@
+"""
+This script allows users to evaluate their business ideas by uploading a CSV file.
+The CSV file should contain three columns: ID, Problem, and Solution.
+The script uses the evaluate_idea function from the prompt module to evaluate each idea.
+The result is displayed on a Streamlit app.
+"""
+
 import pandas as pd
 import streamlit as st
+from PIL import Image
 from prompt import evaluate_idea
 
+
 def main():
-    # Title with green strip background
-    title_html = """
-        <style>
-            .title-container {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                background-color: #4CAF50; /* Green background color */
-                padding: 10px;
-                margin-bottom: 20px; /* Added margin for separation */
-            }
-            .title-text {
-                color: white;
-            }
-        </style>
-        <div class="title-container">
-            <div class="title-text">
-                <h1>ECOLOOP MAVEN</h1>
-                <p>Your Business Idea Evaluator</p>
-            </div>
-        </div>
     """
-    st.markdown(title_html, unsafe_allow_html=True)
+    Main function to run the Streamlit app.
+    """
+
+    # Open the image file
+    img = Image.open('logo.png')
+
+    # Create columns
+    col1, col2, col3 = st.columns([1, 2, 1])
+ 
+    # Display the image in the center column
+    with col2:
+        st.image(img, width=300)
+    
+    # Display the caption in bold and centered
+    st.markdown("<h1 style='text-align: center; color: black; font-size: 15px;'>Your Business Idea Evaluator</h1>", unsafe_allow_html=True)
 
     # Allow user to upload a CSV file
     st.subheader("Upload a CSV File with the Following Format:")
@@ -33,6 +35,7 @@ def main():
     st.markdown("Example:")
     st.code("ID, Problem, Solution\n1, Your problem statement 1, Your solution 1\n2, Your problem statement 2, Your solution 2\n...")
 
+    # File uploader
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
 
     # Use st.empty() to create an empty placeholder for the "OR" text
@@ -60,7 +63,7 @@ def main():
                     row_number = int(row_input)
 
                     # Check if the row number is within the valid range
-                    if 1 <= row_number <= len(df):
+                    if 0 <= row_number < len(df):
                         # Get the corresponding problem statement and solution
                         problem_statement = df.iloc[row_number - 1, 0]
                         solution = df.iloc[row_number - 1, 1]
