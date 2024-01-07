@@ -29,7 +29,7 @@ def evaluate_idea(problem_statement, solution):
     assistant = client.beta.assistants.create(
         instructions="""
         You are an evaluator of business ideas related to the circular economy.
-        For CSV files evaluation, raise an error that says documents not found only when there is a runtime error and not when text for the problem and solution are available.
+        For CSV file evaluation, in case you encounter a runtime error, no documents, blank cells or insufficient data, return a message stating that there is insufficient detail in the prompt provided. Please provide additional information for a comprehensive evaluation from this model. 
         Be very consistent with the format of the responses generated.
         Be very critical and strict for each metric (penalize as much as possible).
         Highlight the areas of concern.
