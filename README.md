@@ -1,6 +1,6 @@
 # Ecoloop Maven
 
-This is the Github Repo of the Team SustainEarth for the AI EarthHack Competition 2024. The project includes a Streamlit application that allows users to evaluate their business ideas by uploading a CSV file or by entering the ideas manually. The CSV file should contain three columns: ID, Problem, and Solution. The application uses the GPT-4 model to evaluate each idea and displays the result on the Streamlit app.
+This is the Github Repo of the Team SustainEarth for the AI EarthHack Competition 2024. The project includes a Streamlit application that allows users to evaluate their business ideas by uploading a CSV file or by entering the ideas manually. The CSV file should contain three columns: ID, Problem, and Solution. The application uses the GPT-4 Turbo model to evaluate each idea and displays the result on the Streamlit app.
 
 ![Flow Diagram](flow.png)
 
