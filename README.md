@@ -33,20 +33,25 @@ Follow these steps to set up and run the project:
     cd SustainEarth
     ```
 
-2. Install the required dependencies:
+2. Create a new Conda environment and activate it:
+    ```bash
+    conda create -n SustainEarth python=3.9
+    conda activate SustainEarth
+    ```
+
+3. Install the required dependencies:
     ```bash
     pip install -r requirements.txt
     ```
 
-3. Run the Streamlit application:
+4. Replace the API key in the `.env` file:
+
+    Go to the file named `.env` and add your `OPENAI_API_KEY` to it.
+
+5. Run the Streamlit application:
     ```bash
     streamlit run main.py
     ```
-
-
-### Replace the API key in the .env file
-
-Go to file named `.env` and add your `OPENAI_API_KEY` to it.
 
 ## Usage
 
