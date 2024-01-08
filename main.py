@@ -63,10 +63,10 @@ def main():
                     row_number = int(row_input)
 
                     # Check if the row number is within the valid range
-                    if 0 <= row_number < len(df):
+                    if row_number in df.index:
                         # Get the corresponding problem statement and solution
-                        problem_statement = df.iloc[row_number - 1, 0]
-                        solution = df.iloc[row_number - 1, 1]
+                        problem_statement = df.loc[row_number, df.columns[0]]
+                        solution = df.loc[row_number, df.columns[1]]
 
                         # Evaluate the idea using the OpenAI Assistant
                         result = evaluate_idea(problem_statement, solution)
@@ -74,6 +74,8 @@ def main():
                         # Display the result
                         st.write("Evaluation Result:")
                         st.write(result)
+                    else:
+                        st.error("Invalid input. The entered Problem ID does not exist.")
                 except ValueError:
                     st.error("Invalid input. Please enter a valid integer for the row number.")
 
