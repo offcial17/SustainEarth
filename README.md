@@ -11,7 +11,7 @@ Ecoloop Maven is a powerful tool designed to help entrepreneurs and innovators e
 
 Users can upload a CSV file containing their business ideas. Each idea should be represented by a row in the CSV file, with three columns: ID, Problem, and Solution. The 'Problem' column should describe a sustainability issue that the business idea aims to address, and the 'Solution' column should detail how the business idea plans to solve this issue.
 
-Once the CSV file is uploaded, a preview of the entire file is displayed. Next, the user will go through the preview and select the Problem ID corresponding to the Problem-Soution pair which the user wants to evaluate. Upon entering the Problem ID, Ecoloop Maven will use the GPT-4 Turbo model to evaluate the proposed solution against a set of predfined metrics. The results are then displayed, providing users with valuable insights into their business ideas.
+Once the CSV file is uploaded, a preview of the entire file is displayed. Next, the user will go through the preview and select the Problem ID corresponding to the Problem-Soution pair which the user wants to evaluate. Upon entering the Problem ID, Ecoloop Maven will use the GPT-4 Turbo model to evaluate the proposed solution against a set of predefined metrics. The results are then displayed, providing users with valuable insights into their business ideas.
 
 There is also the option for users to manually enter just a single set of problem statement and solution for evalution.
 
