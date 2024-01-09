@@ -4,11 +4,6 @@ This is the Github Repo of the Team SustainEarth for the AI EarthHack Competitio
 
 ![Flow Diagram](flow.png)
 
-## Website
-Evaluavte your ideas now
-
-[Streamlit App](https://eclpmvn.streamlit.app/)
-
 ## Product Overview
 
 Ecoloop Maven is a powerful tool designed to help entrepreneurs and innovators evaluate their business ideas in the context of sustainability. The application leverages the capabilities of the GPT-4 model, a state-of-the-art language model developed by OpenAI, to analyze and evaluate the potential impact and viability of business ideas.
