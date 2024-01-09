@@ -4,6 +4,10 @@ This is the Github Repo of the Team SustainEarth for the AI EarthHack Competitio
 
 ![Flow Diagram](flow.png)
 
+## Website
+Evaluavte your ideas now
+
+[Streamlit App](https://eclpmvn.streamlit.app/)
 
 ## Product Overview
 
