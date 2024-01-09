@@ -47,7 +47,7 @@ Follow these steps to set up and run the project:
 
 4. Replace the API key in the `.env` file:
 
-    Go to the file named `.env` and add your `OPENAI_API_KEY` to it.
+    Create a file named .env and add your OPENAI_API_KEY to it
 
 5. Run the Streamlit application:
     ```bash
